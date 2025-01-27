@@ -76,7 +76,7 @@ def send_message():
         customer_id = data.get("customerId")
         api_key = data.get("apiKey")
         user_message = data.get("message")
-        mode = os.getenv("MODE", "local")
+        mode = os.getenv("MODE", "remote")
 
         # Validate inputs
         if not customer_id or not api_key:
@@ -90,7 +90,7 @@ def send_message():
             return jsonify({"error": "Invalid Customer ID or API Key"}), 403
 
         # Get AI response based on mode
-        print("Calling {} backend", mode)
+        print("Calling backend -->", mode)
         if mode == "local":
             ai_message = get_response_from_ollama(user_message)
         elif mode == "remote":
