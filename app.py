@@ -14,7 +14,7 @@ CORS(app)
 # Constants
 MODEL_NAME = "mistral:latest"
 HF_MODEL_NAME = "meta-llama/Meta-Llama-3-8B-Instruct"
-HF_API_TOKEN = "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"
+HF_API_TOKEN = os.getenv("HF_API_TOKEN")
 
 
 def load_customers():
@@ -47,7 +47,7 @@ def get_response_from_ollama(user_message):
     return None
 
 
-def get_response_from_huggingface(user_message):
+def get_response_from_remote(user_message):
     """Get response from Hugging Face Inference Client."""
     client = InferenceClient(HF_MODEL_NAME, token=HF_API_TOKEN)
     output = client.chat.completions.create(
@@ -94,7 +94,7 @@ def send_message():
         if mode == "local":
             ai_message = get_response_from_ollama(user_message)
         elif mode == "remote":
-            ai_message = get_response_from_huggingface(user_message)
+            ai_message = get_response_from_remote(user_message)
         else:
             return jsonify({"error": "Invalid MODE configuration"}), 500
 
