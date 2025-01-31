@@ -1,7 +1,7 @@
 <!-- Decorative header -->
 <div align="center">
   
-# 🌟 AI Chat Widget Backend API 🤖
+# 🌟 AI Chat Widget Backend API with RAG 🤖
 [![Demo](https://img.shields.io/badge/Demo-Live%20Preview-brightgreen?style=for-the-badge)](https://jaicalink.netlify.app/demo.html)
 [![Flask](https://img.shields.io/badge/Flask-2.3.3-blue?style=for-the-badge&logo=flask)](https://flask.palletsprojects.com/)
 [![JWT](https://img.shields.io/badge/JWT-Auth-red?style=for-the-badge&logo=json-web-tokens)](https://jwt.io/)
